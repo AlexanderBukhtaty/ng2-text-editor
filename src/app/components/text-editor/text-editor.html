@@ -1,39 +1,41 @@
 <html>
-<body>
-    <div class="contain">
+<body class="container contain">
+  <div class="size">
+    <div>
       <ul class="ul_format">
         <li class="box">
-          <div class="display" (click)="toggleBold()">B</div>
+          <div class="display" title="Bold" (click)="toggleBold()"><i class="glyphicon glyphicon-bold"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="toggleItalic()">I</div>
+          <div class="display" title="Italic" (click)="toggleItalic()"><i class="glyphicon glyphicon-italic"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="toggleUnderline()">U</div>
+          <div class="display" title="Underline" (click)="toggleUnderline()"><b>U</b></div>
         </li>
         <li class="box">
-          <div class="display" (click)="headingh1()">H1</div>
+          <div class="display" title="Heading H1" (click)="headingh1()"><b>H1</b></div>
         </li>
         <li class="box">
-          <div class="display" (click)="justifyCenter()">Center</div>
+          <div class="display" title="Justify Center" (click)="justifyCenter()"><i class="glyphicon glyphicon-align-center"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="justifyLeft()">Left</div>
+          <div class="display" title="Justify Left" (click)="justifyLeft()"><i class="glyphicon glyphicon-align-left"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="justifyRight()">Right</div>
+          <div class="display" title="Justify Right" (click)="justifyRight()"><i class="glyphicon glyphicon-align-right"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="justifyFull()">Justify</div>
+          <div class="display" title="Justify Full" (click)="justifyFull()"><i class="glyphicon glyphicon-align-justify"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="createLink()">Link</div>
+          <div class="display" title="Hyperlink" (click)="createLink()"><i class="glyphicon glyphicon-link"></i></div>
         </li>
         <li class="box">
-          <div class="display" (click)="indent()">Indent</div>
+          <div class="display" title="Indent" (click)="indent()"><i class="glyphicon glyphicon-indent-left"></i></div>
         </li>
       </ul>
     </div>
     <iframe class="adjust" id="editor" name="text-editor" src="app/components/text-editor/editable.htm"></iframe>
+  </div>
 </body>
 </html>
