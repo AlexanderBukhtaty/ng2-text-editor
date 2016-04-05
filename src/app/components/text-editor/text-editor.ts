@@ -96,7 +96,9 @@ export class TextEditor implements AfterContentChecked {
    console.log("textttt--",text)
    let linkURL=prompt("Enter a URL:", "http://");
    console.log("linkURL",linkURL)
-   this.editorDoc.execCommand ('insertHTML', true, '<a href="' + linkURL + '" target="_blank">' + text +'</a>');
+   if(linkURL != null){
+     this.editorDoc.execCommand ('insertHTML', true, '<a href="' + linkURL + '" target="_blank">' + text +'</a>');
+   }
  }
 
  /**
@@ -104,5 +106,49 @@ export class TextEditor implements AfterContentChecked {
     */
  indent(){
    this.editorDoc.execCommand ('indent', false, null);
+ }
+
+ insertImage(){
+   let image = prompt("Enter source:","")
+   console.log("image url:",image)
+   if(image != null){
+     this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ image + '">"');
+   }
+ }
+
+ copy(){
+   try{
+     console.log("inside copy")
+    //  console.log(this.editorDoc.execCommand ('copy', false, null));
+    console.log(this.editorDoc.queryCommandSupported("copy"));
+     this.editorDoc.execCommand ('copy', false, null)
+   }
+   catch(err){
+     console.log("error---",err)
+   }
+
+ }
+
+ paste(){
+   try{
+     console.log("inside paste");
+     console.log(this.editorDoc.queryCommandSupported("paste"));
+     this.editorDoc.execCommand ('paste', false, null)
+   }
+   catch(err){
+     console.log("error---",err)
+   }
+ }
+
+ cut(){
+   this.editorDoc.execCommand ('cut', false, null);
+ }
+
+ undo(){
+   this.editorDoc.execCommand ('undo', false, null);
+ }
+
+ redo(){
+   this.editorDoc.execCommand ('redo', false, null);
  }
 }
