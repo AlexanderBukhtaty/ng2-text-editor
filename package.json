@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
+  "name": "ng2-text-editor",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "A simple text editor using bootstrap",
   "scripts": {
     "typings-install": "./node_modules/.bin/typings install",
     "postinstall": "npm run typings-install",
@@ -9,9 +9,8 @@
     "watch": "npm run build -- --watch",
     "start": "./node_modules/.bin/webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src"
   },
-  "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+  "author": [
+    "Ankita Gupta <ankitagupta118@gmail.com>"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -34,16 +33,14 @@
   },
   "keywords": [
     "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
+    "ng2-text-editor"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "git+https://github.com/tixdo/ng2-text-editor.git"
   },
   "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
+    "url": "https://github.com/tixdo/ng2-text-editor/issues"
   },
-  "homepage": "https://github.com/angular/angular2-seed#readme"
+  "homepage": "https://github.com/tixdo/ng2-text-editor/blob/master/README.md"
 }

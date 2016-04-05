@@ -1,13 +1,15 @@
 .contain{
   padding-top:10px;
+  padding-left: 10px;
+  width: 600px;
+  height: 600px;
 }
 .size{
   resize: both;
-  border-bottom: 50px;
-  border-color: black !important;
+  overflow:hidden;
 }
 .adjust{
-  min-height: 300px;
+  height: 100%;
   width:100%
 }
 .ul_format{
