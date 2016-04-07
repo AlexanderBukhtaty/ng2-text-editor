@@ -33,10 +33,10 @@
           <div class="display" title="Indent" (click)="indent()"><i class="glyphicon glyphicon-indent-left"></i></div>
         </li>
         <li class="box">
-          <div class="display" title="Insert Image" (click)="insertImage()"><i class="glyphicon glyphicon-picture"></i></div>
+          <div class="display" title="Cut" (click)="cut()"><i class="glyphicon glyphicon-scissors"></i></div>
         </li>
         <li class="box">
-          <div class="display" title="Cut" (click)="cut()"><i class="glyphicon glyphicon-scissors"></i></div>
+          <div class="display" title="Insert Image" (click)=insertImage()><i class="glyphicon glyphicon-picture"></i></div>
         </li>
         <!-- <li class="box">
           <div class="display" title="Copy" (click)="copy()"><i class="glyphicon glyphicon-duplicate"></i></div>
@@ -52,6 +52,9 @@
         </li>
       </ul>
     </div>
-    <iframe class="adjust" id="editor" name="text-editor" src="app/components/text-editor/editable.htm"></iframe>
+    <iframe class="adjust" id="editor" name="text-editor" src="app/components/text-editor/editable.htm">
+        </iframe>
   </div>
 </div>
+<input type='file' id ="image" (change)="readURL($event);" style="visibility: hidden">
+    <img id="blah" src="" style="display: none;">

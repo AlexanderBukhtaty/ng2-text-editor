@@ -1,4 +1,4 @@
-import {Component,OnInit,AfterContentChecked} from 'angular2/core';
+import {Component,OnInit,AfterContentChecked,OnChanges} from 'angular2/core';
 
 @Component({
   selector:'editor',
@@ -9,8 +9,13 @@ export class TextEditor implements AfterContentChecked {
   time:boolean =true;
   editorBody:any;
   editorDoc:any;
+  image_select:any = false;
+  q:any;
   constructor(){
-  }
+    // if(this.image_select==false){
+
+      // }
+    }
 
   /**
      *The ngAfterContentChecked is an overrided methodn defined in interface AfterContentChecked.
@@ -19,17 +24,14 @@ export class TextEditor implements AfterContentChecked {
   ngAfterContentChecked(){
     let editor:HTMLIFrameElement = <HTMLIFrameElement>document.getElementById("editor");
     this.editorDoc = editor.contentWindow.document;
-    console.log("this.editorDoc",this.editorDoc)
     if(this.time){
       setTimeout(() => {
         this.time = false;
-        console.log("editor body--",this.editorDoc.body)
         this.editorBody = editor.contentWindow.document.body;
         this.editorBody.contentEditable = true;
         this.editorDoc.designMode = "on";
       }, '100');
     }
-
   }
 
   /**
@@ -93,9 +95,7 @@ export class TextEditor implements AfterContentChecked {
     */
  createLink(){
    let text = this.editorDoc.getSelection().toString();
-   console.log("textttt--",text)
    let linkURL=prompt("Enter a URL:", "http://");
-   console.log("linkURL",linkURL)
    if(linkURL != null){
      this.editorDoc.execCommand ('insertHTML', true, '<a href="' + linkURL + '" target="_blank">' + text +'</a>');
    }
@@ -109,18 +109,30 @@ export class TextEditor implements AfterContentChecked {
  }
 
  insertImage(){
-   let image = prompt("Enter source:","")
-   console.log("image url:",image)
-   if(image != null){
-     this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ image + '">"');
-   }
- }
+    let img = document.getElementById("image")
+    img.click();
+  }
 
+/**
+   *readURL() methods loads the image on the editor for preview.
+   */
+readURL(event) {
+          var reader = new FileReader();
+          if (event.srcElement.files && event.srcElement.files[0]) {
+          reader.onload = function (e) {
+            let a = document.getElementById("blah")
+                 a.setAttribute('src', e.target.result)
+                 this.q = e.target.result;
+                 let editor:HTMLIFrameElement = <HTMLIFrameElement>document.getElementById("editor");
+                 this.editorDoc = editor.contentWindow.document;
+                 this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ this.q + '">');
+          };
+          reader.readAsDataURL(event.srcElement.files[0]);
+          }
+        }
  copy(){
    try{
-     console.log("inside copy")
-    //  console.log(this.editorDoc.execCommand ('copy', false, null));
-    console.log(this.editorDoc.queryCommandSupported("copy"));
+     console.log(this.editorDoc.queryCommandSupported("copy"));
      this.editorDoc.execCommand ('copy', false, null)
    }
    catch(err){
@@ -140,14 +152,23 @@ export class TextEditor implements AfterContentChecked {
    }
  }
 
+ /**
+    *cut() method cuts the current selection and copies it to the clipboard.
+    */
  cut(){
    this.editorDoc.execCommand ('cut', false, null);
  }
 
+ /**
+    *undo() method undoes the last executed command.
+    */
  undo(){
    this.editorDoc.execCommand ('undo', false, null);
  }
 
+ /**
+    *redo() method redoes the previous undo command.
+    */
  redo(){
    this.editorDoc.execCommand ('redo', false, null);
  }
