@@ -117,40 +117,19 @@ export class TextEditor implements AfterContentChecked {
    *readURL() methods loads the image on the editor for preview.
    */
 readURL(event) {
-          var reader = new FileReader();
-          if (event.srcElement.files && event.srcElement.files[0]) {
-          reader.onload = function (e) {
-            let a = document.getElementById("blah")
-                 a.setAttribute('src', e.target.result)
-                 this.q = e.target.result;
-                 let editor:HTMLIFrameElement = <HTMLIFrameElement>document.getElementById("editor");
-                 this.editorDoc = editor.contentWindow.document;
-                 this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ this.q + '">');
-          };
-          reader.readAsDataURL(event.srcElement.files[0]);
-          }
-        }
- copy(){
-   try{
-     console.log(this.editorDoc.queryCommandSupported("copy"));
-     this.editorDoc.execCommand ('copy', false, null)
-   }
-   catch(err){
-     console.log("error---",err)
-   }
-
- }
-
- paste(){
-   try{
-     console.log("inside paste");
-     console.log(this.editorDoc.queryCommandSupported("paste"));
-     this.editorDoc.execCommand ('paste', false, null)
-   }
-   catch(err){
-     console.log("error---",err)
-   }
- }
+      var reader = new FileReader();
+      if (event.srcElement.files && event.srcElement.files[0]) {
+      reader.onload = function (e) {
+        let a = document.getElementById("blah")
+             a.setAttribute('src', e.target.result)
+             this.q = e.target.result;
+             let editor:HTMLIFrameElement = <HTMLIFrameElement>document.getElementById("editor");
+             this.editorDoc = editor.contentWindow.document;
+             this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ this.q + '">');
+      };
+      reader.readAsDataURL(event.srcElement.files[0]);
+      }
+    }
 
  /**
     *cut() method cuts the current selection and copies it to the clipboard.
