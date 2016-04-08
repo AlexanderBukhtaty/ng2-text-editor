@@ -10,7 +10,7 @@ export class TextEditor implements AfterContentChecked {
   editorBody:any;
   editorDoc:any;
   image_select:any = false;
-  q:any;
+  source:any;
   constructor(){
     // if(this.image_select==false){
 
@@ -122,10 +122,10 @@ readURL(event) {
       reader.onload = function (e) {
         let a = document.getElementById("blah")
              a.setAttribute('src', e.target.result)
-             this.q = e.target.result;
+             this.source = e.target.result;
              let editor:HTMLIFrameElement = <HTMLIFrameElement>document.getElementById("editor");
              this.editorDoc = editor.contentWindow.document;
-             this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ this.q + '">');
+             this.editorDoc.execCommand ('insertHTML', false, '<img src="'+ this.source + '">');
       };
       reader.readAsDataURL(event.srcElement.files[0]);
       }
