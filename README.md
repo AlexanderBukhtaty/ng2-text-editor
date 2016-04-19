@@ -5,7 +5,7 @@ A simple text editor using bootstrap.
 
 ### Dependencies
 
-ng2-modal depends on bootstrap, you'll need to include below link before using ng2-modal:
+ng2-text-editor depends on bootstrap, you'll need to include below link before using ng2-text-editor:
 
 ```<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">```
 
