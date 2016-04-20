@@ -5,16 +5,14 @@ import {Component,OnInit,AfterContentChecked,OnChanges} from 'angular2/core';
   templateUrl:'app/components/text-editor/text-editor.html',
   styleUrls:['app/components/text-editor/text-editor.css']
 })
-export class TextEditor implements AfterContentChecked {
+export class TextEditor implements AfterContentChecked{
   time:boolean =true;
   editorBody:any;
   editorDoc:any;
   image_select:any = false;
   source:any;
   constructor(){
-    // if(this.image_select==false){
 
-      // }
     }
 
   /**
