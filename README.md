@@ -14,7 +14,7 @@ ng2-text-editor depends on bootstrap, you'll need to include below link before u
 - Make sure you have [node.js](https://nodejs.org/) installed
 - run `npm install` to install dependencies
 - run `npm start` or `ng serve` to fire up dev server
-- open browser to [`http://localhost:3000`](http://localhost:4200)
+- open browser to [`http://localhost:4200`](http://localhost:4200)
 
 ### How to use-
 - Clone or download the repository.
